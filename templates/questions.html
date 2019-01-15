@@ -7,10 +7,21 @@
     <title>Question Time</title>
 </head>
 <body>
+
         <h1>Question Time!</h1>
         
-        <p>Welcome, {{username}}, let's get started!</p>
+        <p>Welcome, {{user}}, let's get started!</p>
         
-        <p> Question {{question}}:</p>
+        <p> Question {{ question_number }}: {{ question.question }}</p>
+        
+        <form method="POST">
+            <textarea name="answer" id="answer"></textarea>
+            <button>Submit</button>
+        </form>
+        
+        <p>
+            {{ test_var }}
+        </p>
+        
 </body>
 </html>

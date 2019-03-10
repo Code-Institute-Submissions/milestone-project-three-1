@@ -20,8 +20,8 @@ def get_question(number):
     while counter < current_question:
         riddles.readline();
         counter += 1
-    
-    current_question = {"question" : riddles.readline(), "answer" : riddles.readline()}
+
+    current_question = {"question" : riddles.readline().rstrip(), "answer" : riddles.readline().rstrip()}
     
     riddles.close()
     
@@ -45,16 +45,32 @@ def index():
 @app.route('/questions', methods = ["GET", "POST"])    
 def questions():
     
+    if "username" not in session:
+        return redirect(url_for("index"))
+        
     question = get_question(session["current_question_number"])
     
     if request.method == "POST":
         
-        session["current_question_number"] +=1
-        question = get_question(session["current_question_number"])
+        if session["current_question_number"] < 10:
+            
+            session["current_question_number"] +=1
+            question = get_question(session["current_question_number"])
+            
+        else:
+        
+            return render_template('success.html')
         
         return render_template('questions.html', user=session["username"], question=question)
     
     return render_template('questions.html', user=session["username"], question=question)
+
+@app.route('/reset')
+def reset():
+    
+    session.clear()
+    
+    return redirect(url_for('index'))
     
 if __name__ == "__main__":
     app.run(host=os.getenv('IP', "0.0.0.0"), port=int(os.getenv('PORT', "5000")), debug=True)

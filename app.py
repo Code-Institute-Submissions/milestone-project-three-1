@@ -1,6 +1,6 @@
 import os
 from datetime import datetime
-from flask import Flask, redirect, render_template, request, session, url_for
+from flask import Flask, redirect, render_template, request, session, url_for, flash
 
 app = Flask(__name__)
 app.secret_key = "qwer1234"
@@ -61,6 +61,7 @@ def questions():
         
             return render_template('success.html')
         
+        flash('Correct!')
         return render_template('questions.html', user=session["username"], question=question)
     
     return render_template('questions.html', user=session["username"], question=question)

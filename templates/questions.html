@@ -17,6 +17,13 @@
     <div class="container">
 
         <h1>Question Time!</h1>
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %} {% endwith %}
 
         <p>Welcome, {{user}}, let's get started!</p>
 
@@ -47,7 +54,7 @@
             return false;
         }
         else {
-            console.log(userAnswer +" = "+ realAnswer + "?");
+            console.log(userAnswer + " = " + realAnswer + "?");
             return true;
         }
     }

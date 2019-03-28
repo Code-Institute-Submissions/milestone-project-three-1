@@ -1,63 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %} {% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<div class="container">
 
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>Question Time</title>
 
-</head>
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Question Time!</h1>
 
-<body>
+        <p class="lead">Welcome, {{user}}, let's get started!</p>
 
-    <div class="container">
+        <h3> Question {{ session["current_question_number"] }}: {{ question.question }}</h3>
+        
+        
+        <hr class="my-4">
 
-        <h1>Question Time!</h1>
-        {% with messages = get_flashed_messages() %} {% if messages %}
-        <ul class=flashes>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %} {% endwith %}
-
-        <p>Welcome, {{user}}, let's get started!</p>
-
-        <p> Question {{ question_number }}: {{ question.question }}</p>
-
-        <form id="target" action="{{ url_for('questions') }}" method="POST">
-            <textarea name="answer" id="answer"></textarea>
-            <button id="submit" type="submit" onclick="return submitAnswer()">Submit</button>
+        <form method="POST" action="{{ url_for('questions') }}">
+            <div class="form-group">
+                <label for="answer">Please enter your answer:</label>
+                <input type="text" class="form-control" name="answer" id="answer" placeholder="Answer" required>
+            </div>
+            <button id="submit" type="submit" class="btn btn-info" onclick="return submitAnswer('{{ question.answer }}')">Submit</button>
         </form>
-
-        <p>
-            {{ question.answer }}
-        </p>
-
+        
+        <div id="wrong-answer"></div>
     </div>
 
 
-</body>
+</div>
 
-<script>
-    function submitAnswer() {
-
-        var realAnswer = "{{ question.answer }}".toLowerCase();
-        var userAnswer = $('#answer').val().toLowerCase();
-
-        if (realAnswer != userAnswer) {
-            alert('wrong!');
-            return false;
-        }
-        else {
-            console.log(userAnswer + " = " + realAnswer + "?");
-            return true;
-        }
-    }
-</script>
-
-</html>
+{% endblock %}

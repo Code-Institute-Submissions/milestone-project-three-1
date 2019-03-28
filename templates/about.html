@@ -1,5 +1,7 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
 
+{% block content %}
+    
 <div class="container">
 
     <div class="jumbotron">
@@ -10,16 +12,9 @@
         <p>Best of luck!</p>
 
         <hr class="my-4">
-
-        <form method="POST">
-            <div class="form-group">
-                <label for="username">Please enter a username:</label>
-                <input type="text" class="form-control" name="username" id="username" placeholder="Name" required>
-            </div>
-            <button type="submit" class="btn btn-info">Get Started</button>
-        </form>
+        
     </div>
-
+    
 </div>
 
 {% endblock %}

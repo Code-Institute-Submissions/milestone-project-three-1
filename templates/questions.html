@@ -2,11 +2,9 @@
 
 <div class="container">
 
-
     <div class="jumbotron">
         <h1 class="display-4 text-center">Question Time!</h1>
-
-        <p class="lead">Welcome, {{user}}, let's get started!</p>
+        <p class="lead">Welcome, {{session['username']}}, let's get started!</p>
 
         <h3> Question {{ session["current_question_number"] }}: {{ question.question }}</h3>
         
@@ -23,6 +21,7 @@
         
         <div id="wrong-answer"></div>
     </div>
+    <small class="text-muted">HINT: For testing and debugging purposes, the answer is hidden in the button element. But try not to peek unless you need to!</small>
 
 
 </div>

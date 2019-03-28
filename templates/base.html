@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../static/style.css" type="text/css" />
 
     <title>Riddle Me This!</title>
 </head>
@@ -24,16 +24,16 @@
 
             <div class="collapse navbar-collapse" id="navbarToggle">
                 <ul class="navbar-nav pull-right">
-                    <li class="nav-item active">
+                    <li class="nav-item 
+                    {% if request.endpoint == 'index' %} active {% endif %}>">
                         <a class="nav-link" href="/">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item 
+                    {% if request.endpoint == 'reset' %} active {% endif %}>">
                         <a class="nav-link" href="/reset">Reset</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="/about">About</a>
-                    </li>
-                    <li class="nav-item">
+                    <li class="nav-item 
+                    {% if request.endpoint == 'scoreboard' %} active {% endif %}>">
                         <a class="nav-link " href="/scoreboard">Scoreboard</a>
                     </li>
                 </ul>
@@ -50,7 +50,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="static/main.js"></script>
+    <script type="text/javascript" src="../static/main.js"></script>
 </body>
 
 </html>

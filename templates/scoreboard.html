@@ -2,32 +2,47 @@
 
 {% block content %}
 
-<table class="table table-hover table-dark">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Score</th>
-      <th scope="col">Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    
-    {% for score in scores %}
+<div class="container">
+
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Leaderboards</h1>
+
+        <p>Here you'll see a list of the recent scores, and we name and shame anyone that decided they were smarter than the game!</p>
+
+        <hr class="my-4">
         
-        <tr
-        {% if 'CHEATER' in score[1] %}
-            class="bg-danger"
-        {% endif %}
-        >
-            <td>{{score[0]}}</td>
-            <td>{{score[1]}}</td>
-            <td>{{score[2]}}</td>
-        </tr>
+        <table class="table table-hover table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Score</th>
+              <th scope="col">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            
+            {% for score in scores %}
+                
+                <tr
+                {% if score[1]|int == 100 %}
+                    class="bg-success"
+                {% elif 'CHEATER' in score[1] %}
+                    class="bg-danger"
+                {% endif %}
+                >
+                    <td>{{score[0]}}</td>
+                    <td>{{score[1]}}</td>
+                    <td>{{score[2]}}</td>
+                </tr>
+            
+            {% endfor %}
+            
+          </tbody>
+        </table>
+        
+    </div>
     
-    {% endfor %}
-    
-  </tbody>
-</table>
+</div>
 
 {% endblock %}

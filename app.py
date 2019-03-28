@@ -114,12 +114,6 @@ def reset():
     
     return redirect(url_for('index'))
     
-@app.route('/about')
-def about():
-    
-    return render_template('about.html')
-    
-
 
 @app.route('/cheaters')
 def cheaters():
@@ -139,4 +133,4 @@ def cheaters():
     
     
 if __name__ == "__main__":
-    app.run(host=os.getenv('IP', "0.0.0.0"), port=int(os.getenv('PORT', "5000")), debug=True)
+    app.run(host=os.getenv('IP', "0.0.0.0"), port=int(os.getenv('PORT', "5000")), debug=False)

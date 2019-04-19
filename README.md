@@ -1,7 +1,7 @@
 
 # RIDDLE ME THIS
 
-[Website](https://pagination.js.org/)
+[Website](https://milestone-project-three-ag.herokuapp.com/)
 
 Riddle Me This is a question and answer game developed as an exercise in the Flask framework for Python.
 
@@ -41,7 +41,7 @@ The application was tested thouroughly throughout development. All of the follow
 Given that the site is essentially plain Bootstrap markup, it is fully responsive down to the smallest smartphone screen size, with the small exceoption of a slight overflow on the Leaderboard table. 
 
 
-# TECHNOLOGIES
+## TECHNOLOGIES
 
 - Python
 - MySQL
@@ -50,7 +50,7 @@ Given that the site is essentially plain Bootstrap markup, it is fully responsiv
 - CSS
 - Bootstrap
 
-# DEPLOYMENT
+## DEPLOYMENT
  
  COMMANDS USED TO DEPLOY PROJECT TO Heroku:
  
@@ -62,6 +62,6 @@ Given that the site is essentially plain Bootstrap markup, it is fully responsiv
 - git push heroku master ( to push local repository to heroku)
 
 
-# CREDITS
+## CREDITS
 
 
